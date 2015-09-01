@@ -1,8 +1,10 @@
-import pygame, sys, os
+import pygame, sys, os, random
 from pygame.locals import *
 
 pygame.init()
-screen = pygame.display.set_mode((1024, 768))
+screen_width =  1024
+screen_height = 768
+screen = pygame.display.set_mode((screen_width, screen_height))
 pygame.display.set_caption('HELLO WORLD!')
 
 
@@ -28,7 +30,8 @@ class Egg(pygame.sprite.Sprite):
     def __init__(self):
         pygame.sprite.Sprite.__init__(self)
         self.image, self.rect = load_image("egg.png", -1)
-        pos = (100, 100)
+        self.rect.x = random.randrange(0, screen_width-50)
+        self.rect.y = random.randrange(0, screen_height-50)
         #print("egg init")
         
     def hatch(self):
@@ -37,16 +40,16 @@ class Egg(pygame.sprite.Sprite):
 
 
 def main():
-    
-    egg = Egg()
-    egg.rect.x = 100
-    egg.rect.y = 100
     eggs = pygame.sprite.Group()
+
+    #use a for loop to place 10 eggs on the screen
+    egg = Egg()
     eggs.add(egg)
+
+
+
     
-    #eggs.clear(screen)
     eggs.draw(screen)
-    print("main")
 
     pygame.display.flip()  
 
