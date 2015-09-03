@@ -21,20 +21,22 @@ width = 100
 height = 100
 
 #colors vary from 0-255
+#red, green, and blue values are added together
+#to make one, final color
 red = 255
 green = 0
 blue = 0
 
 
-#this is where the magic happens
+#this is where the magic happens - Blocky is created
 pygame.draw.rect(screen, (red, green, blue), (x, y, width, height))
 
 
 
 
 
-#check for system exit (red X in corner of window)
-while True:
+#checks for system exit (red X in corner of window)
+while (True):
     for event in pygame.event.get():
         if event.type == QUIT:
             pygame.quit()

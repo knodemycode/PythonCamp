@@ -14,7 +14,8 @@ import ttk
 
 
 def add(a, b):
-    
+    answer = 0
+    return answer
         
 
 def subtract(a, b):

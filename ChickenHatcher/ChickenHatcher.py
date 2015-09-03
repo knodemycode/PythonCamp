@@ -5,7 +5,7 @@ pygame.init()
 screen_width =  1024
 screen_height = 768
 screen = pygame.display.set_mode((screen_width, screen_height))
-pygame.display.set_caption('HELLO WORLD!')
+pygame.display.set_caption('Eggs Everywhere!')
 
 
 def load_image(name, colorkey=None):
@@ -43,6 +43,7 @@ def main():
     eggs = pygame.sprite.Group()
 
     #use a for loop to place 10 eggs on the screen
+
     egg = Egg()
     eggs.add(egg)
 
