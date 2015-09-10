@@ -10,7 +10,6 @@ pygame.display.set_caption('Blocky Window')
 ####################### Draw Blocky! #####################
 """
 Objective: change these integer values to see how it changes Blocky
-
 """
 #blocky's position
 x = 100
