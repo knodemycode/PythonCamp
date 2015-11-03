@@ -14,23 +14,24 @@ import ttk
 
 
 def add(a, b):
-    answer = 0
+    
+    answer = a+b
     return answer
         
 
 def subtract(a, b):
-    answer = 0
+    answer = a-b
     return answer
     #return the value of b subtracted from a
 
 
 def multiply(a, b):
-    answer = 0
+    answer = a*b
     return answer
     #return the value of a multiplied by b
 
 def divide(a, b):
-    answer = 0
+    answer = a/b
     return answer
     #return the value of a divided by b
 

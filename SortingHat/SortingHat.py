@@ -2,7 +2,6 @@
 The tkdocs tutorial
 http://www.tkdocs.com/tutorial/firstexample.html
 """
-import pygame
 from Tkinter import *
 #if this doesn't work import _tkinter  (for python 3)
 """
@@ -17,6 +16,29 @@ import ttk
 
 
 class Hat:
+
+    def sort(self):
+               
+        """depending on the questions and answers
+        return Slytherin, Gryffindor, Ravenclaw, or Hufflepuff
+        """
+    
+        answer1 = self.answers[0]
+        answer2 = self.answers[1]
+        answer3 = self.answers[2]
+
+        result = ""
+        if (answer1 == "yes"):
+            result += "Gryffindor"
+        elif (answer2 == "yes"):
+            result +=  "Slytherin"
+        elif (answer3 == "yes"):
+            result +=  "Ravenclaw"
+        else:
+            result +=  "Hufflepuff"
+
+        return "You belong to "+result
+ 
     def __init__(self):
         #declare variables
         self.qa = 0 #questions answered
@@ -41,14 +63,6 @@ class Hat:
             oput.set( self.sort() )
 
 
-    def sort(self):
-        answer1 = self.answers[0]
-        answer2 = self.answers[1]
-        answer3 = self.answers[2]
-        
-        """depending on the questions and answers
-        return Slytherin, Gryffindor, Ravenclaw, or Hufflepuff
-        """
         
         
 def main():
@@ -70,10 +84,10 @@ def main():
     sortingHat = Hat()
 
     #yes/no buttons
-    yesBtn = ttk.Button(mframe, text="a) yes", command=lambda: sortingHat.yesPressed(oput))
+    yesBtn = ttk.Button(mframe, text="yes", command=lambda: sortingHat.yesPressed(oput))
     yesBtn.grid(column = 1, row = 3, sticky = W)
 
-    noBtn = ttk.Button(mframe, text="a) no", command=lambda: sortingHat.noPressed(oput))
+    noBtn = ttk.Button(mframe, text="no", command=lambda: sortingHat.noPressed(oput))
     noBtn.grid(column = 2, row = 3, sticky = W)
 
     #question
