@@ -1,6 +1,8 @@
 import pygame, math, sys
 from pygame.locals import *
 
+if not pygame.font: print ('Warning, fonts disabled')
+
 #initialize 
 screen_width = 600
 screen_height = 400
@@ -19,7 +21,8 @@ game_state = {"k_up":False ,"k_down":False,
               "k_w":False, "k_s":False,
               "l_paddle_y":0.0 , "r_paddle_y":0.0,
               "ballx":300, "bally":20,
-              'balldx':'l','balldy':0}
+              'balldx':'l','balldy':0,
+              'rscore':0, 'lscore':0}
 
 gs = game_state #short hand of game state is gs
 
@@ -40,6 +43,15 @@ def render():
     pygame.draw.rect(screen, WHITE, (screen_width-20, gs['r_paddle_y'], 10, paddle_height))
 
     pygame.draw.rect(screen,WHITE, (gs['ballx'], gs['bally'], 10, 10))
+
+
+        
+    if pygame.font:
+        font = pygame.font.Font(None, 42)
+        text = font.render(str(gs['lscore'])+' - '+str(gs['rscore']), 1, (255, 255, 255))
+        textpos = text.get_rect(centerx=screen_width/2)
+        
+        screen.blit(text, textpos)
 
     pygame.display.flip()
 
@@ -116,6 +128,14 @@ def doPhysics():
     else:
         gs['ballx'] -= ballspeed
 
+    if (gs['ballx'] < 0):
+        newBall()
+        gs['rscore'] += 1
+
+    if (gs['ballx']-10 > screen_width):
+        newBall()
+        gs['lscore'] += 1
+
     gs['bally'] += gs['balldy']
         
 
@@ -123,7 +143,9 @@ def doPhysics():
         
 
 
-
+def newBall():
+    gs['ballx'] = screen_width/2
+    gs['bally'] = screen_height/2
 #main loop
 def gameLoop(game_state):
 
