@@ -77,7 +77,7 @@ def generateSpiral(layer, seed="RF", ruleset=["R","L","L","R"]):
     return generateSpiral(layer-1, seed+"RF"+spiral, ruleset)
 
 print(generateSpiral(3))
-execute(alex, generateTree(7), 135, 100, 0.5)#draws a tree
+execute(alex, generateTree(8), 15, 100, 0.7)#draws a tree
 #execute(alex, generateSpiral(8), 85, 10, 1)#draws a dragon spiral
 
 turtle.mainloop()

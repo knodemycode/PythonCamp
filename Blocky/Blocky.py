@@ -16,19 +16,20 @@ x = 100
 y = 100
 
 #blocky's size
-width = 100
+width = 10
 height = 100
 
 #colors vary from 0-255
 #red, green, and blue values are added together
 #to make one, final color
-red = 255
-green = 0
-blue = 0
+red = 0
+green = 180
+blue = 180
 
 
 #this is where the magic happens - Blocky is created
 pygame.draw.rect(screen, (red, green, blue), (x, y, width, height))
+
 
 
 
